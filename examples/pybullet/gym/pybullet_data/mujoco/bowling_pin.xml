@@ -1,0 +1,21 @@
+<mujoco model="bowling_pin">
+  <default>
+    <default class="visual">
+      <geom conaffinity="0" contype="0" group="2" material="pin" type="mesh"></geom>
+    </default>
+    <default class="collision">
+      <geom group="3" type="mesh"></geom>
+    </default>
+  </default>
+  <asset>
+    <texture file="bowling_pin.png" name="bowling_pin" type="2d"></texture>
+    <material name="pin" shininess="1" specular="1" texture="bowling_pin"></material>
+    <mesh file="bowling_pin.obj" scale="0.01 0.01 0.01"></mesh>
+  </asset>
+  <worldbody>
+    <body name="bowling_pin" pos="1 0 0">
+      <geom class="visual" mesh="bowling_pin"></geom>
+      <geom class="collision" mesh="bowling_pin"></geom>
+    </body>
+  </worldbody>
+</mujoco>

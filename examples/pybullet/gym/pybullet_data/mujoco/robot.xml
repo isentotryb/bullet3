@@ -1,0 +1,117 @@
+<mujoco model="nanosaur">
+  <asset>
+    <material name="Black" rgba="0.1 0.1 0.1 1.0"></material>
+    <material name="Green" rgba="0.0 0.8 0.0 1.0"></material>
+    <material name="aluminum" rgba="0.5 0.5 0.5 1.0"></material>
+    <material name="DarkGrey" rgba="0.3 0.3 0.3 1.0"></material>
+    <material name="GunMetalGrey" rgba="0.46 0.5 0.56 1.0"></material>
+    <material name="Gold" rgba="1.0 1.0 0.752941176470588 1.0"></material>
+    <material name="zedm_mat" rgba="0.0 0.0 0.0 0.9"></material>
+    <mesh file="nanosaur_description/meshes/base_front.stl" name="base_front" scale="0.001 0.001 0.001"></mesh>
+    <mesh file="nanosaur_description/meshes/base_rear.stl" name="base_rear" scale="0.001 0.001 0.001"></mesh>
+    <mesh file="nanosaur_description/meshes/parts/motor_board.stl" name="motor_board"></mesh>
+    <mesh file="nanosaur_description/meshes/parts/power_bank.stl" name="power_bank"></mesh>
+    <mesh file="nanosaur_description/meshes/pb_holder.stl" name="pb_holder" scale="0.001 0.001 0.001"></mesh>
+    <mesh file="nanosaur_description/meshes/parts/NVIDIA_jetson_nano_4gb.stl" name="NVIDIA_jetson_nano_4gb"></mesh>
+    <mesh file="nanosaur_description/meshes/sprocket.stl" name="sprocket" scale="0.001 0.001 0.001"></mesh>
+    <mesh file="nanosaur_description/meshes/parts/Pololu-Micro-Metal-Gearmotor.stl" name="Pololu-Micro-Metal-Gearmotor"></mesh>
+    <mesh file="nanosaur_description/meshes/wheel.stl" name="wheel" scale="0.001 0.001 0.001"></mesh>
+    <mesh file="nanosaur_description/meshes/track.stl" name="track" scale="0.001 0.001 0.001"></mesh>
+    <mesh file="nanosaur_description/meshes/slider.stl" name="slider" scale="0.001 0.001 0.001"></mesh>
+    <mesh file="nanosaur_description/meshes/flap_bottom.stl" name="flap_bottom" scale="0.001 0.001 0.001"></mesh>
+    <mesh file="nanosaur_description/meshes/flap_top.stl" name="flap_top" scale="0.001 0.001 0.001"></mesh>
+    <mesh file="nanosaur_description/meshes/parts/nanosaur-exp-board.stl" name="nanosaur-exp-board"></mesh>
+    <mesh file="nanosaur_description/meshes/cover-fe.stl" name="cover-fe" scale="0.001 0.001 0.001"></mesh>
+    <mesh file="nanosaur_description/meshes/parts/OLED_Module.stl" name="OLED_Module"></mesh>
+  </asset>
+  <worldbody>
+    <body name="base_link" pos="0 0 0" quat="1.0 0.0 0.0 0.0">
+      <freejoint></freejoint>
+      <body name="base_front" pos="0.0 0.0 0.03" quat="1.0 0.0 0.0 0.0">
+        <geom group="2" material="Green" mesh="base_front" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0" rgba="0.0 0.8 0.0 1.0" type="mesh"></geom>
+        <body name="motor_board" pos="0.055 0.0 0.005" quat="0.8870110203754471 0.0 0.4617482536323317 0.0">
+          <geom group="2" material="GunMetalGrey" mesh="motor_board" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0" rgba="0.46 0.5 0.56 1.0" type="mesh"></geom>
+        </body>
+        <body name="cover" pos="0.06 0.0 -0.026" quat="1.0 0.0 0.0 0.0">
+          <geom group="2" material="Green" mesh="cover-fe" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0" rgba="0.0 0.8 0.0 1.0" type="mesh"></geom>
+          <geom group="3" pos="0.003 0.0 0.03" quat="0.5000006633974484 0.4999999999995599 0.4999999999995599 -0.4999993366025517" size="0.028 0.035" type="cylinder"></geom>
+          <body name="display_left" pos="-0.024 0.0242 0.06" quat="0.9799247384206391 0.0 0.19936776828575406 0.0">
+            <geom group="2" material="Black" mesh="OLED_Module" pos="0.0 0.0 0.0" quat="0.7071072502792263 0.0 0.0 0.7071063120935576" rgba="0.1 0.1 0.1 1.0" type="mesh"></geom>
+          </body>
+          <body name="display_right" pos="-0.024 -0.0242 0.06" quat="0.9799247384206391 0.0 0.19936776828575406 0.0">
+            <geom group="2" material="Black" mesh="OLED_Module" pos="0.0 0.0 0.0" quat="0.7071072502792263 0.0 0.0 0.7071063120935576" rgba="0.1 0.1 0.1 1.0" type="mesh"></geom>
+          </body>
+          <body name="camera_board" pos="0.0142 0.0 0.031" quat="0.7372777600956426 0.0 0.6755897456802851 0.0">
+            <body name="camera_optical_frame" pos="0.0 0.0 0.005" quat="0.7071072502792263 0.0 0.0 -0.7071063120935576"></body>
+          </body>
+        </body>
+      </body>
+      <body name="base_rear" pos="0.0 0.0 0.03" quat="1.0 0.0 0.0 0.0">
+        <geom group="2" material="Green" mesh="base_rear" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0" rgba="0.0 0.8 0.0 1.0" type="mesh"></geom>
+        <geom group="3" pos="0.0 0.0 -0.01" quat="1.0 0.0 0.0 0.0" size="0.06 0.035 0.015" type="box"></geom>
+        <body name="power_bank" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0">
+          <geom group="2" material="DarkGrey" mesh="power_bank" pos="0.0 0.0 -0.0115" quat="1.3267948966775328e-06 0.0 0.0 0.9999999999991198" rgba="0.3 0.3 0.3 1.0" type="mesh"></geom>
+        </body>
+        <body name="pb_holder" pos="-0.0545 0.0 -0.0061" quat="1.0 0.0 0.0 0.0">
+          <geom group="2" material="Green" mesh="pb_holder" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0" rgba="0.0 0.8 0.0 1.0" type="mesh"></geom>
+        </body>
+        <body name="NVIDIA_jetson" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0">
+          <geom group="2" material="DarkGrey" mesh="NVIDIA_jetson_nano_4gb" pos="0.039 0.022 0.005" quat="1.3267948966775328e-06 0.0 0.0 0.9999999999991198" rgba="0.3 0.3 0.3 1.0" type="mesh"></geom>
+        </body>
+        <body name="flap_bottom" pos="-0.05 0.0 0.0" quat="1.0 0.0 0.0 0.0">
+          <geom group="2" material="Green" mesh="flap_bottom" pos="0.0068 0.0 0.0175" quat="1.0 0.0 0.0 0.0" rgba="0.0 0.8 0.0 1.0" type="mesh"></geom>
+          <body name="flap_top" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0">
+            <geom group="2" material="Green" mesh="flap_top" pos="0.0068 0.0 0.0175" quat="1.0 0.0 0.0 0.0" rgba="0.0 0.8 0.0 1.0" type="mesh"></geom>
+          </body>
+          <body name="board_expansion" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0">
+            <geom group="2" material="GunMetalGrey" mesh="nanosaur-exp-board" pos="-0.002 0.0005 0.017" quat="1.0 0.0 0.0 0.0" rgba="0.46 0.5 0.56 1.0" type="mesh"></geom>
+          </body>
+        </body>
+      </body>
+      <body name="sprocket_left" pos="0.053 0.043 0.015" quat="0.7071072502792263 -0.7071063120935576 0.0 0.0">
+        <geom group="2" material="Black" mesh="sprocket" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0" rgba="0.1 0.1 0.1 1.0" type="mesh"></geom>
+        <geom group="3" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0" size="0.015 0.0075" type="cylinder"></geom>
+        <joint axis="0.0 0.0 1.0" damping="0.01" frictionloss="1" name="sprocket_left_joint" solimpfriction="0.5" type="hinge"></joint>
+      </body>
+      <body name="motor_left" pos="0.053 0.043 0.015" quat="0.7071072502792263 -0.7071063120935576 0.0 0.0">
+        <geom group="2" material="Gold" mesh="Pololu-Micro-Metal-Gearmotor" pos="0.0 0.0 -0.031" quat="0.7071072502792263 0.0 0.0 -0.7071063120935576" rgba="1.0 1.0 0.752941176470588 1.0" type="mesh"></geom>
+        <body name="wheel_left" pos="-0.099 0.0 0.0" quat="1.0 0.0 0.0 0.0">
+          <geom group="2" material="Black" mesh="wheel" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0" rgba="0.1 0.1 0.1 1.0" type="mesh"></geom>
+          <geom group="3" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0" size="0.015 0.0075" type="cylinder"></geom>
+          <joint axis="0.0 0.0 1.0" damping="0.01" frictionloss="1" name="wheel_left_joint" solimpfriction="0.5" type="hinge"></joint>
+        </body>
+        <body name="track_left" pos="-0.049 0.0 0.0" quat="1.0 0.0 0.0 0.0">
+          <geom group="2" material="Black" mesh="track" pos="0.0 0.0 0.0" quat="0.7071072502792263 0.7071063120935576 0.0 0.0" rgba="0.1 0.1 0.1 1.0" type="mesh"></geom>
+          <body name="slider_left" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0">
+            <geom group="2" material="Green" mesh="slider" pos="0.0 0.0 0.008" quat="1.0 0.0 0.0 0.0" rgba="0.0 0.8 0.0 1.0" type="mesh"></geom>
+          </body>
+        </body>
+      </body>
+      <body name="sprocket_right" pos="0.053 -0.043 0.015" quat="0.7071072502792263 0.7071063120935576 0.0 0.0">
+        <geom group="2" material="Black" mesh="sprocket" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0" rgba="0.1 0.1 0.1 1.0" type="mesh"></geom>
+        <geom group="3" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0" size="0.015 0.0075" type="cylinder"></geom>
+        <joint axis="0.0 0.0 -1.0" damping="0.01" frictionloss="1" name="sprocket_right_joint" solimpfriction="0.5" type="hinge"></joint>
+      </body>
+      <body name="motor_right" pos="0.053 -0.043 0.015" quat="0.7071072502792263 0.7071063120935576 0.0 0.0">
+        <geom group="2" material="Gold" mesh="Pololu-Micro-Metal-Gearmotor" pos="0.0 0.0 -0.031" quat="0.7071072502792263 0.0 0.0 -0.7071063120935576" rgba="1.0 1.0 0.752941176470588 1.0" type="mesh"></geom>
+        <body name="wheel_right" pos="-0.099 0.0 0.0" quat="1.0 0.0 0.0 0.0">
+          <geom group="2" material="Black" mesh="wheel" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0" rgba="0.1 0.1 0.1 1.0" type="mesh"></geom>
+          <geom group="3" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0" size="0.015 0.0075" type="cylinder"></geom>
+          <joint axis="0.0 0.0 -1.0" damping="0.01" frictionloss="1" name="wheel_right_joint" solimpfriction="0.5" type="hinge"></joint>
+        </body>
+        <body name="track_right" pos="-0.049 0.0 0.0" quat="1.0 0.0 0.0 0.0">
+          <geom group="2" material="Black" mesh="track" pos="0.0 0.0 0.0" quat="0.7071072502792263 0.7071063120935576 0.0 0.0" rgba="0.1 0.1 0.1 1.0" type="mesh"></geom>
+          <body name="slider_right" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0">
+            <geom group="2" material="Green" mesh="slider" pos="0.0 0.0 0.008" quat="1.0 0.0 0.0 0.0" rgba="0.0 0.8 0.0 1.0" type="mesh"></geom>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <actuator>
+    <motor joint="sprocket_left_joint" name="sprocket_left_joint"></motor>
+    <motor joint="wheel_left_joint" name="wheel_left_joint"></motor>
+    <motor joint="sprocket_right_joint" name="sprocket_right_joint"></motor>
+    <motor joint="wheel_right_joint" name="wheel_right_joint"></motor>
+  </actuator>
+</mujoco>

@@ -1,0 +1,34 @@
+<mujoco model="eyeball">
+  <default>
+    <default class="visual_eye">
+      <geom conaffinity="0" contype="0" group="2" pos="1 0 1.5" type="mesh"></geom>
+    </default>
+    <default class="collison_eye">
+      <geom group="3" pos="1 0 1.5" type="mesh"></geom>
+    </default>
+  </default>
+  <asset>
+    <texture file="eyeball/Eye_D.png" name="Eye_D" type="2d"></texture>
+    <material name="EyeBlack" shininess="1.0" specular="0.0" texture="Eye_D"></material>
+    <material name="Eye_Iris" shininess="0.017647059" specular="1.0" texture="Eye_D"></material>
+    <material name="Eye_Tranz.001" shininess="0.70541399" specular="0.439189" texture="Eye_D"></material>
+    <material name="Eye_white" shininess="0.550955445" specular="0.627027" texture="Eye_D"></material>
+    <mesh file="eyeball/eyeball_0.obj" scale="0.1 0.1 0.1"></mesh>
+    <mesh file="eyeball/eyeball_1.obj" scale="0.1 0.1 0.1"></mesh>
+    <mesh file="eyeball/eyeball_2.obj" scale="0.1 0.1 0.1"></mesh>
+    <mesh file="eyeball/eyeball_3.obj" scale="0.1 0.1 0.1"></mesh>
+  </asset>
+  <worldbody>
+    <body name="eyeball">
+      <freejoint></freejoint>
+      <geom class="visual_eye" material="Eye_white" mesh="eyeball_0"></geom>
+      <geom class="visual_eye" material="EyeBlack" mesh="eyeball_1"></geom>
+      <geom class="visual_eye" material="Eye_Iris" mesh="eyeball_2"></geom>
+      <geom class="visual_eye" material="Eye_Tranz.001" mesh="eyeball_3"></geom>
+      <geom class="collison_eye" mesh="eyeball_0"></geom>
+      <geom class="collison_eye" mesh="eyeball_1"></geom>
+      <geom class="collison_eye" mesh="eyeball_2"></geom>
+      <geom class="collison_eye" mesh="eyeball_3"></geom>
+    </body>
+  </worldbody>
+</mujoco>
